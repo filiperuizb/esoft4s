@@ -20,7 +20,7 @@ public class Main {
         Turma turma = turmaService.criarTurma(materia);
 
         MatriculaService matriculaService = new MatriculaService();
-        Matricula matricula = matriculaService.criarMatricula(aluno, turma, 8.0, 7.5, null);
+        Matricula matricula = matriculaService.criarMatricula(aluno, turma, 8.0, 7.5);
 
         System.out.println(professorService);
         System.out.println(alunoService);

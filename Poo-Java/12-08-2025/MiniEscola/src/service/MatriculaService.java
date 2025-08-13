@@ -14,7 +14,7 @@ public class MatriculaService {
         return (matricula.getNotaFinal() > 6.0) ? "Aprovado" : "Reprovado";
     }
 
-    public Matricula criarMatricula(Aluno aluno, Turma turma, Double nota1, Double nota2, Double notaFinal) {
+    public Matricula criarMatricula(Aluno aluno, Turma turma, Double nota1, Double nota2) {
         Matricula matricula = new Matricula(aluno, turma);
         matricula.setNota1(nota1);
         matricula.setNota2(nota2);
