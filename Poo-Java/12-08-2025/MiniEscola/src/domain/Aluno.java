@@ -13,7 +13,11 @@ public class Aluno extends Pessoa {
     }
 
     public void setRa(String ra) {
-        this.ra = ra;
+        if(ra.length() > 9) {
+            throw new IllegalArgumentException("RA inválido");
+        } else {
+            this.ra = ra;
+        }
     }
 
     @Override

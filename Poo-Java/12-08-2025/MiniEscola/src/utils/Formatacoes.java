@@ -6,6 +6,6 @@ public class Formatacoes {
     }
 
     public String maskRa(String ra) {
-        return ra.substring(0, 8) + "-" + ra.charAt(8);// 240420692 (Tenho que formatar um - antes do 2
+        return ra.substring(0, 8) + "-" + ra.charAt(8);
     }
 }
