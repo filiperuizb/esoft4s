@@ -3,8 +3,6 @@ package domain;
 public class Materia {
 
     private String nomeDisciplina;
-
-
     private Professor professor;
 
     public String getNomeDisciplina() {
@@ -21,5 +19,15 @@ public class Materia {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("--------MATERIA--------")
+                .append("\nNome da Disciplina: ").append(getNomeDisciplina())
+                .append("\nProfessor: ").append(professor != null ? professor.getNome() : "Sem professor")
+                .append("\n--------MATERIA--------");
+        return sb.toString();
     }
 }

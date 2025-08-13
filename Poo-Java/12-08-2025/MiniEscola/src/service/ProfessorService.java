@@ -15,6 +15,8 @@ public class ProfessorService {
         professor.setRp(rp);
     }
 
+    public Professor getProfessor() {return professor;}
+
     @Override
     public String toString() {
         return professor.toString();

@@ -5,10 +5,12 @@ import domain.Professor;
 
 public class MateriaService {
 
-    Materia materia = new Materia();
-
-    public void criarMateria(String nomeDisciplina, Professor professor) {
+    public Materia criarMateria(String nomeDisciplina, Professor professor) {
+        Materia materia = new Materia();
         materia.setNomeDisciplina(nomeDisciplina);
         materia.setProfessor(professor);
+        return materia;
     }
+
+    public Materia getMateria(Materia materia) {return materia;}
 }

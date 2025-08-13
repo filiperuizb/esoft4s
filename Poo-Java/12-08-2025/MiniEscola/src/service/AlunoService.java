@@ -8,10 +8,12 @@ public class AlunoService {
 
     Aluno aluno = new Aluno();
 
-    public void criarAluno(String nome, String cpf, String dataNascimento, String ra) {
+    public Aluno getAluno() { return aluno; }
+
+    public void criarAluno(String nome, String cpf, LocalDate dataNascimento, String ra) {
         aluno.setNome(nome);
         aluno.setCpf(cpf);
-        aluno.setDataNascimento(LocalDate.parse(dataNascimento));
+        aluno.setDataNascimento(dataNascimento);
         aluno.setRa(ra);
     }
 

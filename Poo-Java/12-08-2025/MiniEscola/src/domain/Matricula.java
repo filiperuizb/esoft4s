@@ -11,7 +11,20 @@ public class Matricula {
 
     private Double notaFinal;
 
-    public Matricula() {};
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Matricula(Aluno aluno, Turma turma) {
+        this.aluno = aluno;
+        this.turma = turma;
+    };
 
     public Aluno getAluno() {
         return aluno;
@@ -51,5 +64,21 @@ public class Matricula {
 
     public void setNotaFinal(Double notaFinal) {
         this.notaFinal = notaFinal;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("--------NOTAS--------")
+                .append("\nNota 1: ")
+                .append(getNota1())
+                .append("\nNota 2: ")
+                .append(getNota2())
+                .append("\nNota Final: ")
+                .append(getNotaFinal()).append(" - ")
+                .append(getStatus())
+                .append("\n--------NOTAS--------");
+
+        return sb.toString();
     }
 }
