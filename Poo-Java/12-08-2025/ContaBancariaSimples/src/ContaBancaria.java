@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContaBancaria {
@@ -8,7 +9,7 @@ public class ContaBancaria {
 
     private Pessoa titular;
 
-    private List<Cartao> cartoes;
+    private List<Cartao> cartoes = new ArrayList<>();
 
     ContaBancaria(String numeroConta, String agencia, String nomePessoa, String cpf,
                   String dataNascimento) {
