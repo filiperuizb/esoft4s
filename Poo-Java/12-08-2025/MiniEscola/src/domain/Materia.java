@@ -24,10 +24,10 @@ public class Materia {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("--------MATERIA--------")
+        sb.append("--------MATÉRIA--------")
                 .append("\nNome da Disciplina: ").append(getNomeDisciplina())
                 .append("\nProfessor: ").append(professor != null ? professor.getNome() : "Sem professor")
-                .append("\n--------MATERIA--------");
+                .append("\n--------MATÉRIA--------");
         return sb.toString();
     }
 }
