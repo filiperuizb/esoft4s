@@ -10,6 +10,14 @@ public class Main {
 
         Banho banho = new Banho("Dove", 30.00, bob, pedro);
 
+        Pessoa zulli = new Pessoa("Thingo Suli", 151);
+
+        Pessoa arantes = new Pessoa("aRaNtis", 0);
+
+        banho.addFuncionario(arantes);
+
+        banho.addFuncionario(zulli);
+
         System.out.println(banho);
 
     }

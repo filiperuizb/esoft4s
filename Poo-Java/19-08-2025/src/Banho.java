@@ -29,17 +29,24 @@ public class Banho {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("\n---------------------------------\n");
         sb.append(cachorro)
-                .append(funcionarios[0])
-                .append("\n---------------------------------\n")
                 .append("BANHO: \n")
                 .append("Sabão: ").append(sabao)
                 .append(" - Quant/Água: ").append(qtdAgua)
                 .append("\nCachorro: ").append(cachorro.nome)
-                .append("\nDono: ").append(cachorro.dono.nome)
-                .append("\nFuncionário: ").append(funcionarios[0].nome)
-                .append(" - ").append(funcionarios[0].matricula)
-                .append("\n---------------------------------\n");
+                .append("\nDono: ").append(cachorro.dono.nome);
+                int contador = 1;
+        sb.append("\n---------------------------------\n");
+                for(Pessoa funcionario: funcionarios) {
+                    if(funcionario != null) {
+                        sb.append("\n ").append(contador)
+                                .append(" Funcionário: ").append(funcionario.nome)
+                                .append(" - ").append(funcionario.matricula);
+                        contador++;
+                    }
+                }
+        sb.append("\n---------------------------------\n");
 
         return sb.toString();
     }

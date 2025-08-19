@@ -10,10 +10,8 @@ public class Pessoa {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n---------------------------------")
-                .append("Nome: ").append(nome)
-                .append(" - Matricula: ").append(matricula)
-                .append("\n---------------------------------");
+                sb.append("Nome: ").append(nome)
+                    .append(" - Matricula: ").append(matricula);
         return sb.toString();
     }
 }

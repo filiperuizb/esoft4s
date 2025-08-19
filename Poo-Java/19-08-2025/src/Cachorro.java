@@ -12,12 +12,11 @@ public class Cachorro {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n---------------------------------\n")
-                .append("CACHORRO:\n")
-                .append("Nome: ").append(nome)
-                .append("\nPeso: ").append(peso)
-                .append("\nDONO: ").append(dono.nome)
-                .append("\n---------------------------------\n");
+                sb.append("CACHORRO:\n")
+                    .append("Nome: ").append(nome)
+                    .append("\nPeso: ").append(peso)
+                    .append("\nDONO: ").append(dono.nome);
+
         return sb.toString();
     }
 }
