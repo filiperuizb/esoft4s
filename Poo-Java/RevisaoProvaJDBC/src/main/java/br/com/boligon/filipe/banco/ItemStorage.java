@@ -19,6 +19,8 @@ public class ItemStorage {
              nome VARCHAR(255) NOT NULL,
              preco_base DOUBLE,
              tipo VARCHAR(50),
+             peso_em_kg DOUBLE,
+             duracao_em_meses INT,
              preco_final DOUBLE,
              imposto DOUBLE
             );
@@ -82,6 +84,7 @@ public class ItemStorage {
                 String nome = rs.getString("nome");
                 double precoBase = rs.getDouble("preco_base");
                 String tipo = rs.getString("tipo");
+                Double pesoEmKg =
                 double precoFinal = rs.getDouble("preco_final");
                 double imposto = rs.getDouble("imposto");
 
