@@ -34,8 +34,8 @@ public class ItemStorage {
             """;
 
     private String update = """
-            UPDATE item SET preco_base = ?, preco_final = ?, imposto = ? WHERE id = ?;
-            """;
+        UPDATE item SET preco_base = ? WHERE id = ?;
+        """;
 
     private String delete = """
             DELETE FROM item WHERE id = ?;
@@ -117,7 +117,7 @@ public class ItemStorage {
             stmt.setInt(2, id);
             int linhasAfetadas = stmt.executeUpdate();
             if(linhasAfetadas == 0) {
-                throw new IllegalArgumentException("Item com ID" + id + " não ecnontrado!");
+                throw new IllegalArgumentException("Item com ID " + id + " não encontrado!");
             } else {
                 System.out.println("Atualizado com sucesso!");
             }
