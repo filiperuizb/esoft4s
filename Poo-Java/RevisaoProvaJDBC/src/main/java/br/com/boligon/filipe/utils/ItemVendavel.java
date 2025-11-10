@@ -27,4 +27,8 @@ public abstract class ItemVendavel {
     public double getPrecoBase() {
         return precoBase;
     }
+
+    public void setPrecoBase(double precoBase) {
+        this.precoBase = precoBase;
+    }
 }

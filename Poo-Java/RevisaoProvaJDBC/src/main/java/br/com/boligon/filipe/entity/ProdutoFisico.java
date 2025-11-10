@@ -11,6 +11,11 @@ public class ProdutoFisico extends ItemVendavel implements Tributavel {
         this.pesoEmKg = pesoEmKg;
     }
 
+    public ProdutoFisico(int id, String nome, double precoBase) {
+        super(id, nome, precoBase);
+    }
+
+
 
     @Override
     public double calcularPrecoFinal() {

@@ -19,8 +19,6 @@ public class ItemStorage {
              nome VARCHAR(255) NOT NULL,
              preco_base DOUBLE,
              tipo VARCHAR(50),
-             peso_em_kg DOUBLE,
-             duracao_em_meses INT,
              preco_final DOUBLE,
              imposto DOUBLE
             );
@@ -36,7 +34,7 @@ public class ItemStorage {
             """;
 
     private String update = """
-            UPDATE item SET preco_base = ? WHERE id = ?;
+            UPDATE item SET preco_base = ?, preco_final = ?, imposto = ? WHERE id = ?;
             """;
 
     private String delete = """
@@ -73,24 +71,71 @@ public class ItemStorage {
     }
 
     public List<ItemVendavel> buscarTodosItems() {
+
+        List<ItemVendavel> itens = new ArrayList<>();
+
         try(Connection conexao = ConexaoBanco.getConexao();
         PreparedStatement stmt = conexao.prepareStatement(query)) {
-            ResultSet rs = stmt.executeQuery(query);
+            ResultSet rs = stmt.executeQuery();
 
-            List<ItemVendavel> produtos = new ArrayList<>();
 
             while(rs.next()) {
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
                 double precoBase = rs.getDouble("preco_base");
                 String tipo = rs.getString("tipo");
-                Double pesoEmKg =
-                double precoFinal = rs.getDouble("preco_final");
-                double imposto = rs.getDouble("imposto");
 
+                switch(tipo) {
+                    case "Físico":
+                        ProdutoFisico produtoFisico = new ProdutoFisico(id, nome, precoBase);
+                        itens.add(produtoFisico);
+                        break;
+                    case "Digital":
+                        ServicoDigital servicoDigital = new ServicoDigital(id, nome, precoBase);
+                        itens.add(servicoDigital);
+                        break;
+                    default:
+                        System.out.println("Tipo desconhecido!");
+                        break;
+                }
 
             }
 
+
+        } catch(SQLException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+
+        return itens;
+    }
+
+    public void atualizarPrecoBase(int id, double novoPrecoBase) {
+
+        try(Connection conexao = ConexaoBanco.getConexao();
+        PreparedStatement stmt = conexao.prepareStatement(update)) {
+            stmt.setDouble(1, novoPrecoBase);
+            stmt.setInt(2, id);
+            int linhasAfetadas = stmt.executeUpdate();
+            if(linhasAfetadas == 0) {
+                throw new IllegalArgumentException("Item com ID" + id + " não ecnontrado!");
+            } else {
+                System.out.println("Atualizado com sucesso!");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+
+    }
+
+    public void deletar(int id) {
+        try(Connection conexao = ConexaoBanco.getConexao();
+        PreparedStatement stmt = conexao.prepareStatement(delete)) {
+
+            stmt.setInt(1, id);
+            int linhasAfetadas = stmt.executeUpdate();
+            if(linhasAfetadas == 0 ) {
+                throw new IllegalArgumentException("Item com o ID" + id + " não encontrado!");
+            }
         } catch(SQLException e) {
             System.out.println("Erro: " + e.getMessage());
         }
